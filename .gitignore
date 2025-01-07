@@ -1,0 +1,4 @@
+build/
+.conan2/
+.venv/
+CMakeUserPresets.json
