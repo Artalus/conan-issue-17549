@@ -4,7 +4,6 @@ from conan import ConanFile, conan_version
 
 
 class PkgBase(object):
-    version = "editable"
     generators = ("CMakeToolchain", "CMakeDeps")
     settings = ("os", "compiler", "build_type", "arch")
     options = {
@@ -13,6 +12,9 @@ class PkgBase(object):
     default_options = {
         "shared": False,
     }
+
+    def set_version(self):
+        self.version = "editable"
 
     def init(self):
         # Conan does not inherit options by default, so docs and Slack suggest this instead
