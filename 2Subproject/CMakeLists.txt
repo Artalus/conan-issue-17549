@@ -4,4 +4,6 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../1Wrappers ${CMAKE_CURRENT_LIST_DIR
 
 add_library(Subproject src/lib.cpp)
 target_include_directories(Subproject PUBLIC include)
-target_link_libraries(Subproject PRIVATE Wrappers)
+
+add_executable(SubprojectMain src/main.cpp)
+target_link_libraries(SubprojectMain PRIVATE Subproject)

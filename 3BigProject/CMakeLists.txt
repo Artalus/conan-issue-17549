@@ -4,4 +4,6 @@ add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../2Subproject ${CMAKE_CURRENT_LIST_D
 
 add_library(BigProject src/lib.cpp)
 target_include_directories(BigProject PUBLIC include)
-target_link_libraries(BigProject PRIVATE Subproject)
+
+add_executable(BigProjectMain src/main.cpp)
+target_link_libraries(BigProjectMain PRIVATE BigProject)
