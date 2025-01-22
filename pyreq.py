@@ -1,10 +1,11 @@
 import os
 
 from conan import ConanFile, conan_version
+from conan.tools.cmake import CMakeToolchain
 
 
 class PkgBase(object):
-    generators = ("CMakeToolchain", "CMakeDeps")
+    generators = ("CMakeDeps",)
     settings = ("os", "compiler", "build_type", "arch")
     options = {
         "shared": [False, True],
@@ -26,9 +27,13 @@ class PkgBase(object):
             self.options.update(base.options, base.default_options)
 
     def layout(self):
-        self.folders.build = os.getcwd()
+        self.folders.build = "build"
         self.folders.generators = f"{self.folders.build}/Conan/"
         self.folders.source = "."
+
+    def generate(self):
+        tc = CMakeToolchain(self, generator="Ninja")
+        tc.generate()
 
 
 class C(ConanFile):
