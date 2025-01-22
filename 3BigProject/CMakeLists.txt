@@ -5,6 +5,7 @@ find_package(Subproject CONFIG REQUIRED)
 
 add_library(BigProject src/lib.cpp)
 target_include_directories(BigProject PUBLIC include)
+target_link_libraries(BigProject PRIVATE Company::Subproject)
 
 add_executable(BigProjectMain src/main.cpp)
 target_link_libraries(BigProjectMain PRIVATE BigProject)

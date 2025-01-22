@@ -48,6 +48,9 @@ class PkgBase(object):
         cmake.build()
 
     def package_info(self):
+        # use namespaced targets to fail faster (cmakes treats unknown regular
+        # targets as simply -llibrary flags)
+        self.cpp_info.set_property("cmake_target_name", f"Company::{self.name}")
         # libdirs defaults to [lib]; editable packages do not package anything
         self.cpp_info.libdirs = [self.folders.build]
         # collect_libs() returns empty list since there is no `package_folder`
