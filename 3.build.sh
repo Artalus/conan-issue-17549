@@ -4,5 +4,5 @@
 set -ex
 
 cd $BUILDDIR
-cmake .. -DCMAKE_TOOLCHAIN_FILE=$BUILDDIR/Conan/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
-cmake --build .
+# --build=editable enforces that local dependencies are built first
+conan build .. --build=editable
