@@ -5,6 +5,7 @@ find_package(Wrappers CONFIG REQUIRED)
 
 
 add_library(Subproject src/lib.cpp)
+add_library(Company::Subproject ALIAS Subproject)
 target_include_directories(Subproject PUBLIC include)
 target_link_libraries(Subproject PRIVATE Company::Wrappers)
 
