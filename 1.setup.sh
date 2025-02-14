@@ -1,6 +1,6 @@
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install conan==2.11.0
+python -m pip install git+https://github.com/memsharded/conan@feature/workspace_install
 
 export CONAN_HOME=`pwd`/.conan2/
 rm -rf $CONAN_HOME/profiles/
