@@ -7,4 +7,4 @@ rm -rf $CONAN_HOME/profiles/
 rm -rf $CONAN_HOME/editable_packages.json
 conan profile detect
 
-export BUILDDIR=`pwd`/3BigProject/build/
+export BUILDDIR=`pwd`/build/

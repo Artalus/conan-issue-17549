@@ -4,9 +4,7 @@
 set -ex
 
 rm -rf $BUILDDIR
-mkdir $BUILDDIR
-cd $BUILDDIR
 
 # installs only 3rdparty deps (transitively, including ones from our own deps)
 # could use both `--build=missing --build=editabble`, but separation of concerns is nice
-conan install .. --build=missing
+conan workspace install --build=missing
