@@ -1,7 +1,5 @@
-cmake_minimum_required(VERSION 3.20)
-project(monorepo)
+include_guard()
 include(FetchContent)
-
 function(add_project NAME DIR)
     FetchContent_Declare(
         ${NAME}
@@ -10,8 +8,6 @@ function(add_project NAME DIR)
         OVERRIDE_FIND_PACKAGE
     )
     FetchContent_MakeAvailable(${NAME})
-endfunction()
 
-add_project(Wrappers 1Wrappers)
-add_project(Subproject 2Subproject)
-add_project(BigProject 3BigProject)
+    find_package(${NAME} CONFIG REQUIRED)
+endfunction()

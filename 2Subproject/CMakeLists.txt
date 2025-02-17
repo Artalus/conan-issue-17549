@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 project(Subproject)
-# add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../1Wrappers ${CMAKE_CURRENT_LIST_DIR}/../1Wrappers/build)
-find_package(Wrappers CONFIG REQUIRED)
 
+include(../common.cmake)
+add_project(Wrappers ../1Wrappers)
 
 add_library(Subproject src/lib.cpp)
 add_library(Company::Subproject ALIAS Subproject)
